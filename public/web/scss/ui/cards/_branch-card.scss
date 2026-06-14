@@ -1,0 +1,130 @@
+.branch-card {
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #2A2A2B;
+    padding: 32px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+
+        &-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .branch-name {
+                color: #FFF;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 28px;
+            }
+
+            .branch-status {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                padding: 4px 12px;
+                border-radius: 12px;
+                background: rgba(2, 167, 82, 0.10);
+
+                .circle {
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: #5ADF82;
+                }
+
+                span {
+                    color: #5ADF82;
+                    font-size: 10px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 15px;
+                    letter-spacing: 0.5px;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        &-right {
+            display: flex;
+            flex-direction: column;
+
+            .distance-label {
+                color: rgba(229, 226, 227, 0.40);
+                text-align: right;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 16px;
+                letter-spacing: 1.2px;
+                text-transform: uppercase;
+            }
+
+            .disctance {
+                color: #FFF;
+                text-align: right;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 20px;
+            }
+        }
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .branch-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            .info-icon {
+                width: 15px;
+                height: 15px;
+            }
+
+            .info-text {
+                color: rgba(229, 226, 227, 0.70);
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 20px;
+            }
+
+        }
+    }
+
+    .card-footer {
+        .show-on-map {
+            padding: 16px 0;
+            border-radius: 4px;
+            background: #39393A;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            span {
+                color: #FFF;
+                text-align: center;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 20px;
+            }
+        }
+    }
+
+}

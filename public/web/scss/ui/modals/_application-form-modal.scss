@@ -1,0 +1,75 @@
+@use '../../abstracts/mixins' as *;
+
+.application-form-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+    border-radius: 4px;
+    background: #212121;
+    width: fit-content;
+
+    @include mq(phone-only){
+        width: 100%;
+    }
+
+    .modal-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        border-bottom: none;
+        padding: 0;
+
+        .form-title {
+            color: #FFF;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 28px;
+        }
+
+        .form-description {
+            color: #FFF;
+            text-align: center;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            letter-spacing: -0.084px;
+            text-wrap: wrap;
+        }
+    }
+
+    .modal-body {
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        @include mq(tablet-portrait-up) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .grid-item:nth-child(n+3) {
+            grid-column: span 2;
+
+            @include mq(tablet-portrait-up) {
+                grid-column: span 1;
+            }
+        }
+    }
+
+    .modal-footer {
+        border-top: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        button {
+            flex-grow: 1;
+        }
+
+    }
+}

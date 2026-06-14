@@ -1,0 +1,31 @@
+.store-link {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #FFF;
+
+    .link-texts {
+        display: flex;
+        flex-direction: column;
+
+        span {
+            &:first-child {
+                color: #FFF;
+                font-size: 9px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 9px;
+            }
+
+            &:last-child {
+                color: #FFF;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 100%;
+                letter-spacing: -0.47px;
+            }
+        }
+    }
+}

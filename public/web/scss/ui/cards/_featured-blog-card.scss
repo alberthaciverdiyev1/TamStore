@@ -1,0 +1,96 @@
+.featured-blog-card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 370px;
+
+    .blog-image {
+        height: 210px;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .blog-infos {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .blog-category {
+            color: #D7001E;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+        }
+
+        .blog-title {
+            color: #FFF;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 90%;
+        }
+
+        .blog-description {
+            color: #737373;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22.75px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 90%;
+        }
+
+        .blog-date {
+            color: #525252;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 15px;
+            text-transform: uppercase;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 90%;
+        }
+    }
+
+}
+
+
+
+
+// html
+
+// <a href="" class="featured-blog-card">
+//     <div class="blog-image">
+//         <img src="assets/images/blog-img3.png" alt="">
+//     </div>
+
+//     <div class="blog-infos">
+
+//         <span class="blog-category">SAĞLAM HƏYAT</span>
+
+//         <span class="blog-title">Düzgün qidalanma: Premium məhsullarınfaydası</span>
+
+//          <p class="blog-description">
+//                             Keyfiyyətli qidalanma həyat keyfiyyətinizi necə dəyişir?
+//          </p>
+
+//          <span class="blog-date">12 APREL, 2024</span>
+
+//     </div>
+// </a>

@@ -1,0 +1,131 @@
+@use '../abstracts/mixins' as *;
+
+.partners-container {
+
+    .partners-section {
+        padding: 50px 32px 25px 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        @include mq(tablet-portrait-up) {
+            padding: 50px 16px 25px 16px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+
+            @include mq(tablet-portrait-up) {
+                flex-direction: column;
+            }
+
+            &-left {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                width: 45%;
+
+                @include mq(tablet-portrait-up) {
+                    width: 100%;
+                }
+            }
+
+            &-right {
+                padding-top: 24px;
+                display: flex;
+                align-items: center;
+                gap: 24px;
+
+            }
+
+        }
+
+        .section-body {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+
+            .partners {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 2px;
+            }
+
+        }
+
+    }
+
+    .features-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+        padding: 25px 32px 25px 32px;
+
+        @include mq(lg-down) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mq(tablet-portrait-up) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    .contact-us {
+        padding: 25px 64px;
+        border-radius: 8px;
+        background: #D7001E;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .centered-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            width: 50%;
+
+            @include mq(tablet-portrait-up) {
+                width: 100%;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+        }
+
+
+        .section-description {
+            color: rgba(255, 231, 228, 0.80);
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+        }
+
+        .open-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 16px;
+            border-radius: 6px;
+            background: #fff;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.10), 0 8px 10px -6px rgba(0, 0, 0, 0.10);
+            padding: 16px;
+
+            span {
+                color: #000;
+                text-align: center;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 140%;
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,50 @@
+.logo-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.track {
+  --gap: 18px;
+  --speed: 18s;
+
+  display: flex;
+  gap: var(--gap);
+  overflow: hidden;
+  align-items: center;
+  will-change: transform;
+
+  animation: marquee var(--speed) linear infinite;
+}
+
+.track:hover {
+  animation-play-state: paused;
+}
+
+.splide__slide {
+  overflow: hidden;
+  padding: 16px;
+  width: 120px;
+  height: 80px;
+  background: #1B1B1C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-1 * var(--loop-width, 0px)));
+  }
+}

@@ -1,0 +1,118 @@
+@use '../abstracts/mixins' as *;
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans";
+    // font-family: "Plus Jakarta Sans", sans-serif;
+    // font-family: "Roboto", sans-serif;
+    // font-family: "Playfair Display", serif;
+    font-family: "Roboto Slab", serif;
+    background-color: #0E0E0F;
+
+
+}
+
+.phone-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+    text-wrap: nowrap;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    text-wrap: nowrap;
+}
+
+select {
+    outline: none;
+    border: none;
+
+    &:focus {
+        border: none;
+        box-shadow: none;
+        border: none;
+    }
+}
+
+textarea {
+    resize: none;
+    outline: none;
+    border: none;
+}
+
+.page-container {
+    background: #0E0E0F;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+
+    &-left {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &-right {
+        display: flex;
+        align-items: flex-end;
+        gap: 12px;
+
+        &-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+    }
+}
+
+.section-title {
+    color: #FFF;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 40px;
+
+    @include mq(phone-only) {
+        font-size: 24px;
+    }
+}
+
+.section-description {
+    color: #737373;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+
+    @include mq(phone-only) {
+        font-size: 14px;
+    }
+}
+
+.red-line {
+    width: 80px;
+    height: 4px;
+    background-color: #D7001E;
+}

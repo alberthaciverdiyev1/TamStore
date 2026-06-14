@@ -1,0 +1,14 @@
+.swipe-buttons {
+    display: flex;
+    gap: 8px;
+
+    .swipe-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.10);
+    }
+}

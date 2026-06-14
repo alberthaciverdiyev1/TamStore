@@ -1,0 +1,90 @@
+@use '../../abstracts/mixins' as *;
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .accordion-item {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        background-color: transparent;
+        border-bottom: 1px solid #5F5F5F;
+        padding-bottom: 16px;
+        color: #fff;
+
+        &:last-child {
+            border: none;
+        }
+
+        .accordion-header {
+
+            .accordion-button {
+                padding: 0;
+                box-shadow: none;
+                border: none;
+                background-color: transparent;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 450;
+                line-height: 120%;
+                display: flex;
+                justify-content: space-between;
+                color: #fff;
+
+
+                &::after {
+                    display: none !important;
+                }
+
+                span {
+                    @include mq(phone-only) {
+                        font-size: 12px;
+                    }
+
+                    @include mq(phone-sm) {
+                        font-size: 10px;
+                    }
+
+
+                }
+
+                .accordion-icon {
+                    display: inline-flex;
+                    margin-left: 8px;
+                }
+
+                &.collapsed img {
+                    transform: rotate(0deg);
+                }
+
+                &:not(.collapsed) img {
+                    transform: rotate(180deg); // və ya 180, necə xoşuna gəlirsə
+                }
+            }
+
+            &:not(.collapsed) {
+                background-color: transparent;
+                color: #fff;
+                box-shadow: none;
+            }
+
+            &:focus {
+                background-color: transparent;
+                color: #fff;
+                box-shadow: none;
+            }
+        }
+    }
+
+    .accordion-collapse {
+        .accordion-body {
+            padding: 0;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+        }
+    }
+}

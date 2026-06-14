@@ -1,0 +1,86 @@
+@use '../../abstracts/mixins' as *;
+
+.offcanvas {
+    z-index: 9999;
+    min-height: 100vh;
+    background-color: #0E0E0F;
+
+    &-header {
+        padding: 12px;
+        display: flex;
+        align-items: center;
+
+        .lang-selection {
+            margin-left: auto;
+        }
+
+        .close-btn {
+            img {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+    }
+
+    &-body {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+
+
+        .offcanvas-navs {
+
+            .nav-link {
+                padding: 12px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: all 0.2s ease-in;
+
+                &:hover {
+                    transform: scale(1.01);
+                }
+
+                span {
+                    color: #A3A3A3;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 20px;
+                    letter-spacing: -0.35px;
+                }
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+
+        .offcanvas-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px;
+
+            .hover-button-white {
+                display: inline-block;
+            }
+
+            .view-projects {
+                color: #000;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                padding: 12px;
+                text-decoration: none;
+            }
+        }
+
+    }
+
+}

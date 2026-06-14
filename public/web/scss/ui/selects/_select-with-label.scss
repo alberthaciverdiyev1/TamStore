@@ -1,0 +1,38 @@
+.select-with-label {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    label {
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    select {
+        padding: 18px 64px 18px 24px;
+        color: #737373;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        border-radius: 8px;
+        border: 1px solid #4B4B4B;
+        background-color: #303031;
+        -webkit-appearance: none;
+        appearance: none;
+        background-image: url('/assets/icons/dropdown-icon.svg');
+        background-repeat: no-repeat;
+        background-position: right 24px center;
+        background-size: 32px;
+
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+
+    }
+}

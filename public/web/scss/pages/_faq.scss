@@ -1,0 +1,44 @@
+@use '../abstracts/mixins' as *;
+
+.faq-page-container {
+
+    .faq-section {
+        padding: 50px 32px 25px 32px;
+        display: flex;
+        align-items: center;
+        gap: 100px;
+
+        @include mq(tablet-portrait-up) {
+            flex-direction: column;
+            gap: 24px;
+            padding: 50 16 25px 16;
+        }
+
+        .section-intro {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+            width: 40%;
+
+            @include mq(tablet-portrait-up) {
+                width: 100%;
+                align-items: center;
+            }
+
+            .btn-red {
+                margin-top: 12px;
+                width: fit-content;
+            }
+        }
+
+        .accordion {
+            width: 60%;
+
+            @include mq(tablet-portrait-up) {
+                width: 100%;
+            }
+        }
+    }
+
+}

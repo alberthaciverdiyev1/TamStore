@@ -1,0 +1,75 @@
+@use '../abstracts/mixins' as *;
+
+.homepage-container {
+
+    .partners-section {
+        padding: 50px 32px 25px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+
+        @include mq(tablet-portrait-up) {
+            padding: 50px 16px 25px 16px;
+        }
+
+        .logo-strip {
+            width: 100%;
+        }
+
+        .section-title {
+            color: #000;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 120%;
+        }
+    }
+
+    .static-cards {
+        padding: 25px 32px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 32px;
+        row-gap: 24px;
+        justify-content: center;
+        align-content: center;
+
+        @include mq(big-desktop-up) {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        @include mq(tablet-landscape-up) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mq(phone-only) {
+            grid-template-columns: repeat(1, 1fr);
+            padding: 25px 16px;
+        }
+    }
+
+    .categories-section {
+        padding: 15px 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .swiper-wrapper {
+            padding: 10px 0;
+        }
+    }
+
+    .featured-blogs {
+        padding: 10px 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .swiper-wrapper {
+            padding: 15px 0;
+        }
+
+    }
+
+}

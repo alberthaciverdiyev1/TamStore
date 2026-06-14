@@ -1,0 +1,18 @@
+.btn-white-bordered {
+    padding: 10px 16px;
+    border-radius: 4px;
+    border: 1px solid #FFF;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        color: #FFF;
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+    }
+}

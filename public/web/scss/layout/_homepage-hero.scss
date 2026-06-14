@@ -1,0 +1,129 @@
+@use '../abstracts/mixins' as *;
+
+.homepage-hero {
+    position: relative;
+    height: 555px;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero-content {
+        position: absolute;
+        left: 100px;
+        top: 50%;
+        transform: translate(0, -50%);
+        z-index: 9;
+        width: 40%;
+
+        @include mq(tablet-portrait-up) {
+            width: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 32px;
+        }
+
+        .first-slogan {
+            color: #02A752;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px;
+            letter-spacing: 3.2px;
+            text-transform: capitalize;
+            margin-bottom: 6px;
+
+            @include mq(tablet-portrait-up) {
+                text-align: center;
+            }
+
+            .word {
+                opacity: 0;
+                animation: fadeInWord 0.4s ease forwards;
+                animation-delay: calc(var(--word-index) * .2s);
+            }
+        }
+
+        .second-slogan {
+            color: #FFF;
+            font-size: 64px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 120%;
+            letter-spacing: -1.6px;
+            margin-bottom: 20px;
+
+            .word {
+                opacity: 0;
+                animation: fadeInWord 0.4s ease forwards;
+                animation-delay: calc(var(--word-index) * .2s);
+            }
+
+            @include mq(tablet-portrait-up) {
+                text-align: center;
+            }
+
+            span {
+                color: #D7001E;
+                color: #fff;
+                font-size: 64px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120%;
+            }
+        }
+
+        &-description {
+            color: #A3A3A3;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 26px;
+
+            @include mq(tablet-portrait-up) {
+                text-align: center;
+            }
+
+            .word {
+                opacity: 0;
+                animation: fadeInWord 0.4s ease forwards;
+                animation-delay: calc(var(--word-index) * .2s);
+            }
+        }
+
+        &-actions {
+            margin-top: 48px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.79) 0%, rgba(0, 0, 0, 0.79) 100%);
+    }
+}
+
+@keyframes fadeInWord {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

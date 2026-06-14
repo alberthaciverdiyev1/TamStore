@@ -1,0 +1,41 @@
+.contact-info-card {
+    padding: 24px;
+    display: flex;
+    gap: 24px;
+    background-color: #2A2A2B;
+    border-radius: 8px;
+
+    .card-icon {
+        padding: 8px;
+        background-color: #000;
+        border-radius: 8px;
+        width: fit-content;
+        height: fit-content;
+
+        img {
+            width: 24px;
+            height: 24px;
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .card-infos{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .label{
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .value{
+            color: #E7BCB8;
+            font-size: 12px;
+        }
+    }
+}

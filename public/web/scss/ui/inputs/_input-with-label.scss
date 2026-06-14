@@ -1,0 +1,26 @@
+.input-with-label {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    label {
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    input {
+        padding: 18px 24px;
+        color: #737373;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        border-radius: 8px;
+        border: 1px solid #4B4B4B;
+        background: #303031;
+
+    }
+}

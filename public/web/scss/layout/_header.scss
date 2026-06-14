@@ -1,0 +1,120 @@
+@use '../abstracts/mixins' as *;
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    background: #0E0E0F;
+    backdrop-filter: blur(12px);
+    position: relative;
+    z-index: 9;
+    padding: 16px 0;
+
+
+    @include mq(desktop-up) {
+        padding: 16px 50px;
+        justify-content: space-between;
+
+    }
+
+    @include mq(lg-down) {
+        padding: 16px 50px;
+        justify-content: space-between;
+    }
+
+    .header-navigations {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+
+        a {
+            --dot: 6px;
+            --gap: 6px;
+            --shift: calc(var(--dot) + var(--gap));
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 140%;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding-left: calc(12px + var(--shift));
+
+            .circle {
+                width: var(--dot);
+                height: var(--dot);
+                border-radius: 50%;
+                background: #02A752;
+
+                position: absolute;
+                top: 50%;
+                left: 12px;
+                transform: translate(var(--shift), -50%);
+                opacity: 0;
+
+                transition: transform .35s ease, opacity .2s ease;
+            }
+
+            span {
+                display: inline-block;
+                transform: translateX(calc(var(--shift) * -1));
+                transition: transform .35s ease;
+            }
+
+            &:hover {
+                .circle {
+                    transform: translate(0, -50%);
+                    opacity: 1;
+                }
+
+                span {
+                    transform: translateX(0);
+                    color: #D7001E;
+                }
+            }
+        }
+
+        .active {
+            color: #FFF;
+        }
+
+        @include mq(lg-down) {
+            display: none;
+        }
+    }
+
+    &-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        @include mq(lg-down) {
+            display: none;
+        }
+
+    }
+
+    .menu-button {
+        display: none;
+
+        @include mq(lg-down) {
+            display: inline-block;
+        }
+    }
+
+}
+
+.is-sticky {
+    backdrop-filter: blur(104px);
+    -webkit-backdrop-filter: blur(104px);
+    background: rgba(29, 29, 29, 0.78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}

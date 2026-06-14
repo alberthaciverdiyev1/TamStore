@@ -1,0 +1,135 @@
+@use '../abstracts/mixins' as *;
+
+.contact-page-container {
+
+    .contact-section {
+        padding: 50px 32px 25px 32px;
+        display: flex;
+        gap: 50px;
+
+        @include mq(tablet-portrait-up) {
+            flex-direction: column;
+            padding: 50px 16px 25px 16px;
+        }
+
+        .contact-infos {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 35%;
+
+            @include mq(tablet-portrait-up) {
+                width: 100%;
+            }
+
+            &-header {
+                display: flex;
+                flex-direction: column;
+
+                .infos-title {
+                    color: #D7001E;
+                    font-size: 16px;
+                }
+
+                .infos-description {
+                    color: #E5E2E3;
+                    font-size: 30px;
+                }
+            }
+
+            &-body {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+        }
+
+        .contact-form {
+            width: 65%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 24px;
+            background-color: #1B1B1C;
+            border-radius: 8px;
+
+            @include mq(tablet-landscape-up) {
+                grid-template-columns: repeat(1, 1fr);
+                width: 100%;
+            }
+
+            .grid-item:nth-child(n+3) {
+                grid-column: span 2;
+
+                @include mq(tablet-landscape-up) {
+                    grid-column: span 1;
+                }
+            }
+        }
+
+
+    }
+
+    .map {
+        padding: 25px 32px;
+        height: 350px;
+        border-radius: 8px;
+        overflow: hidden;
+
+
+        @include mq(tablet-portrait-up) {
+            padding: 25px 16px;
+        }
+
+        iframe {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+    }
+
+    .follow-us-section {
+        padding: 25px 32px 0 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+
+        @include mq(tablet-portrait-up) {
+            padding: 25px 16px 0 16px;
+        }
+
+        .section-body {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(277px, 1fr));
+            gap: 32px;
+
+            .social-media-link-card {
+                padding: 24px;
+                border-radius: 8px;
+                background-color: #1B1B1C;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                flex-grow: 1;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+
+                svg {
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .link-title {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

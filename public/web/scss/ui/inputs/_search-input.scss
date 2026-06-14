@@ -1,0 +1,20 @@
+.search-input-div {
+    border-radius: 8px;
+    border: 1px solid #404040;
+    background: #1B1B1B;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    min-width: fit-content;
+
+    input {
+        background-color: transparent;
+        color: #6B7280;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        flex-grow: 1;
+    }
+
+}

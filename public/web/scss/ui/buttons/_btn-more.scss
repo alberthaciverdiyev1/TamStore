@@ -1,0 +1,21 @@
+.btn-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid #D2001B;
+
+    span {
+        color: #D2001B;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%;
+    }
+    
+    img{
+        width: 24px;
+        height: 24px;
+    }
+}

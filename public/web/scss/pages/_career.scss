@@ -1,0 +1,40 @@
+@use '../abstracts/mixins' as *;
+
+.career-container {
+
+    .why-us-section {
+        padding: 50px 32px 25px 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .section-body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+
+            @include mq(lg-down) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+
+    .vacancies-section {
+        padding: 25px 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .section-body {
+
+            .vacancy-cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+                gap: 24px;
+            }
+        }
+
+
+    }
+
+}

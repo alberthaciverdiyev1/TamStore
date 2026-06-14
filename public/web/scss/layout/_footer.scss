@@ -1,0 +1,131 @@
+@use '../abstracts/mixins' as *;
+
+.footer {
+    padding: 0px 100px 50px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include mq(tablet-portrait-up) {
+        padding: 0 16px 50px 16px;
+    }
+
+    &-header {
+
+        @include mq(tablet-portrait-up) {
+            display: flex;
+            justify-content: center;
+        }
+
+    }
+
+    &-body {
+        display: flex;
+        justify-content: space-between;
+        gap: 32px;
+        flex-wrap: wrap;
+
+        @include mq(tablet-portrait-up) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-navigation-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            .navs-title {
+                padding: 10px;
+                color: #FFF;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 140%;
+                text-transform: capitalize;
+
+                @include mq(tablet-portrait-up) {
+                    text-align: center;
+                }
+            }
+
+            .nav-link {
+                padding: 10px;
+                color: #FFF;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 140%;
+                text-transform: capitalize;
+
+                &:hover{
+                    text-decoration: underline;
+                }
+
+                @include mq(tablet-portrait-up) {
+                    text-align: center;
+                }
+            }
+        }
+
+        .footer-promo-links {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            .title {
+                color: #FFF;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 140%;
+                text-transform: capitalize;
+                padding: 10px 0;
+
+
+            }
+
+            .social-links {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                @include mq(tablet-portrait-up) {
+                    .title {
+                        text-align: center;
+                    }
+                }
+
+                .links {
+                    display: flex;
+                    gap: 8px;
+
+                    @include mq(tablet-portrait-up) {
+                        justify-content: center;
+                    }
+
+                    .link {
+                        padding: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid #FFF;
+                        transition: all 0.3s ease-in;
+
+                        &:hover{
+                            transform: scale(1.02);
+                        }
+                    }
+                }
+            }
+
+            .app-links {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+            }
+        }
+
+    }
+}
