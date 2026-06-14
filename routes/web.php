@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaticController;
+use App\Http\Controllers\VacancyController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(HomeController::class)->group(function () {
@@ -46,6 +47,12 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('/product-json', 'productJson')->name('product.json');
 });
 
+
+Route::controller(VacancyController::class)->group(function () {
+    Route::get('/vacancies', 'vacancies')->name('vacancy.list');
+    Route::get('/vacancy/{id}', 'details')->name('vacancy.details');
+    Route::post('/vacancy-application', 'application')->name('vacancy.application');
+});
 
 Route::post('/subscribe', function (\Illuminate\Http\Request $request) {
     $validated = $request->validate([

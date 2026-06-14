@@ -84,6 +84,7 @@ class BannerResource extends Resource
                         'blog' => 'Bloq',
                         'news' => 'Xəbər',
                         'contact' => 'Əlaqə',
+                        'vacancy' => 'Vakansiya',
                     ])
                     ->default('home')
                     ->native(false)
@@ -128,6 +129,7 @@ class BannerResource extends Resource
                         'blog' => 'Bloq',
                         'news' => 'Xəbər',
                         'contact' => 'Əlaqə',
+                        'vacancy' => 'Vakansiya',
                         default => $state,
                     }),
                 Tables\Columns\TextColumn::make('created_at')

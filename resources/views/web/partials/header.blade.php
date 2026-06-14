@@ -76,6 +76,10 @@
             <div class="circle"></div>
             <span>@lang("Partners")</span>
         </a>
+        <a href="{{route('vacancy.list')}}">
+            <div class="circle"></div>
+            <span>@lang("Vacancies")</span>
+        </a>
         <a href="{{route('blog.list')}}">
             <div class="circle"></div>
             <span>@lang("Blogs")</span>
@@ -218,6 +222,11 @@
             </a>
             <a href="{{route('partners.list')}}" class="nav-link">
                 <span>@lang("Partners")</span>
+                <img src="{{asset('web/icons/arrow-up.svg')}}" alt="">
+            </a>
+
+            <a href="{{route('vacancy.list')}}" class="nav-link">
+                <span>@lang("Vacancies")</span>
                 <img src="{{asset('web/icons/arrow-up.svg')}}" alt="">
             </a>
             <a href="{{route('blog.list')}}" class="nav-link">
