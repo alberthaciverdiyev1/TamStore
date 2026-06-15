@@ -24,7 +24,7 @@
 
             <div class="section-header">
                 <div class="section-header-left">
-                    <span class="section-title">Niyə insanlar Tamstore-da işləməyi sevir?</span>
+                    <span class="section-title">@lang("Why do people love working at Tamstore?")</span>
                     <div class="red-line"></div>
                 </div>
 
@@ -37,12 +37,10 @@
                     <div class="card-content">
                         <img src="{{asset('web/icons/f5.svg')}}" alt="">
 
-                        <span class="card-title">Keyfiyyət Təminatı</span>
+                        <span class="card-title">@lang("Quality Assurance")</span>
 
                         <p class="card-description">
-                            Hər bir partnyorumuz ciddi seçim mərhələsindən
-                            keçərək premium standartlarımıza uyğunluğunu
-                            sübut edir.
+                           @lang("Each of our partners goes through a rigorous selection process and proves their compliance with our premium standards.")
                         </p>
                     </div>
 
@@ -103,7 +101,7 @@
             <div class="section-header">
 
                 <div class="section-header-left">
-                    <span class="section-title">Aktiv vakansiyalar</span>
+                    <span class="section-title">@lang("Active vacancies")</span>
                     <div class="red-line"></div>
                 </div>
 
@@ -119,7 +117,7 @@
                                 {{ $vacancy->name }}
                             </a>
                             <button class="btn-red apply-btn" data-vacancy-id="{{ $vacancy->id }}" data-vacancy-name="{{ $vacancy->name }}" data-bs-toggle="modal" data-bs-target="#vacancyListModal">
-                                <span>Detallar</span>
+                                <span>@lang("Details")</span>
                             </button>
 
 

@@ -17,6 +17,7 @@
 <script src="{{asset('web/js/swipers.js')}}"></script>
 <script src="{{asset('web/js/splide.js')}}"></script>
 <script src="{{asset('web/js/header.js')}}"></script>
+<script src="{{asset('web/js/copyButton.js')}}"></script>
 
 {!! setting('scripts.footer') !!}
 

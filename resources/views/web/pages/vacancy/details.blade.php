@@ -7,7 +7,7 @@
             <img src="{{$banner ? $banner->image : ''}}" alt="" class="vacancy-image">
 
             <div class="head-content">
-                <span class="vacancy-location">KARYERA @if($vacancy->city) • {{ $vacancy->city }} @endif</span>
+                <span class="vacancy-location">{{strtoupper(__("Career"))}} @if($vacancy->city) • {{ $vacancy->city }} @endif</span>
                 <span class="vacancy-title">{{ $vacancy->name }}</span>
 
                 <div class="vacancy-meta">
@@ -33,7 +33,7 @@
             <div class="vacancy-body-left">
                 <div class="vacancy-description">
                     <div class="vacancy-description-head">
-                        <span class="title">İş haqqında ümumi məlumat</span>
+                        <span class="title">@lang("General information about the job")</span>
                     </div>
                     @if($vacancy->description)
                         <div class="vacancy-description-body">
@@ -46,7 +46,7 @@
 
                 @if($vacancy->requirements)
                     <div class="requirements">
-                        <span class="title">Tələblər</span>
+                        <span class="title">@lang("Requirements")</span>
                         <div class="requirement-div">
                             <img src="{{asset('web/icons/check-icon.svg')}}" alt="">
                             <span>{!! $vacancy->requirements !!}</span>
@@ -57,7 +57,7 @@
                 @if($vacancy->advantages && count($vacancy->advantages))
                     <div class="our-advantages">
                         <div class="our-advantages-head">
-                            <span class="title">Üstünlüklərimiz</span>
+                            <span class="title">@lang("Our advantages")</span>
                         </div>
 
                         <div class="our-advantages-body">
@@ -83,22 +83,22 @@
                 <div class="vacancy-actions">
                     <div class="vacancy-expiration">
                         @if($vacancy->application_deadline)
-                            <span class="title">Son müraciət tarixi</span>
+                            <span class="title">@lang("Application deadline")</span>
                             <span class="expiration-date">{{ $vacancy->application_deadline }}</span>
                         @endif
                     </div>
 
                     <button class="btn-red" data-bs-toggle="modal" data-bs-target="#vacancyDetailModal"
                             data-bs-id="{{ $vacancy->id }}" data-bs-name="{{ $vacancy->name }}">
-                        <span>Müraciət et</span>
+                        <span>@lang("Apply")</span>
                     </button>
 
-                    <button class="btn-white-bordered">
-                        <span>Yadda saxla</span>
-                    </button>
+{{--                    <button class="btn-white-bordered">--}}
+{{--                        <span>Yadda saxla</span>--}}
+{{--                    </button>--}}
 
                     <div class="share-vacancy">
-                        <span class="title">Paylaş</span>
+                        <span class="title">@lang("Share")</span>
                         <button class="copy-button" type="button" aria-label="Copy page link" data-tooltip="Copy">
                             <img src="{{asset('web/icons/copy.svg')}}" alt="">
                         </button>
@@ -109,9 +109,9 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content send-cv-modal">
                                 <div class="modal-header">
-                                    <span class="form-title" id="modal-vacancy-title">{{ $vacancy->name }} - Müraciət</span>
+                                    <span class="form-title" id="modal-vacancy-title">{{ $vacancy->name }} - @lang("Apply")</span>
                                     <p class="form-description">
-                                        Tamstore+ komandasında yer almaq üçün müraciət edin. Maksimum fayl ölçüsü: 10MB.
+                                        @lang("Apply to join the Tamstore+ team. Maximum file size: 10MB.")
                                     </p>
                                 </div>
 
@@ -121,18 +121,18 @@
                                         <input type="hidden" name="vacancy_id" id="modal-vacancy-id" value="{{ $vacancy->id }}">
 
                                         <div class="input-with-label grid-item">
-                                            <label for="detail_full_name">Ad və soyad</label>
-                                            <input type="text" id="detail_full_name" name="full_name" placeholder="Ad və soyad" required>
+                                            <label for="detail_full_name">@lang("Name and surname")</label>
+                                            <input type="text" id="detail_full_name" name="full_name" placeholder="@lang("Name and surname")" required>
                                         </div>
 
                                         <div class="input-with-label grid-item">
-                                            <label for="detail_email">E-mail ünvanı</label>
-                                            <input type="email" id="detail_email" name="email" placeholder="E-mail ünvanı" required>
+                                            <label for="detail_email">@lang("Email address")</label>
+                                            <input type="email" id="detail_email" name="email" placeholder="@lang("Email address")" required>
                                         </div>
 
                                         <div class="input-with-label grid-item">
-                                            <label for="detail_phone">Telefon nömrəsi</label>
-                                            <input type="text" id="detail_phone" name="phone" placeholder="Telefon nömrəsi">
+                                            <label for="detail_phone">@lang("Phone")</label>
+                                            <input type="text" id="detail_phone" name="phone" placeholder="@lang("Phone")">
                                         </div>
 
                                         <div class="file-upload-input grid-item">
@@ -146,7 +146,7 @@
                                                             <line x1="12" y1="3" x2="12" y2="15"></line>
                                                         </svg>
                                                     </div>
-                                                    <span class="upload-title">CV faylınızı buraya əlavə edin</span>
+                                                    <span class="upload-title">@lang("Attach your CV file here")</span>
                                                     <span class="upload-subtitle">(PDF, DOC, PPT)</span>
                                                 </div>
                                             </label>
@@ -158,10 +158,10 @@
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn-white-bordered" data-bs-dismiss="modal" aria-label="Close">
-                                            <span>Ləğv et</span>
+                                            <span>@lang("Cancel")</span>
                                         </button>
                                         <button type="submit" class="btn-red" id="vacancy-detail-submit">
-                                            <span>Göndər</span>
+                                            <span>@lang("Send")</span>
                                         </button>
                                     </div>
                                 </form>
@@ -175,9 +175,9 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content success-modal">
                                 <div class="modal-header">
-                                    <span class="modal-title">Müraciətiniz qəbul edildi</span>
+                                    <span class="modal-title">@lang("Your application has been accepted.")</span>
                                     <p class="modal-description">
-                                        Müraciətiniz qəbul olundu. Tamstore+ komandası ən qısa zamanda sizinlə əlaqə saxlayacak.
+                                        @lang("Your application has been accepted. The Tamstore+ team will contact you as soon as possible.")
                                     </p>
                                 </div>
                                 <div class="modal-body">
@@ -185,7 +185,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn-white-bordered" data-bs-dismiss="modal" aria-label="Close">
-                                        <span>Bağla</span>
+                                        <span>@lang("Close")</span>
                                     </button>
                                 </div>
                             </div>
@@ -195,7 +195,7 @@
                 </div>
 
                 <div class="other-vacancies">
-                    <span class="title">Digər vakansiyalar</span>
+                    <span class="title">@lang("Other vacancies")</span>
 
                     <div class="vacancies">
                         @foreach($vacancies as $v)
@@ -204,7 +204,7 @@
                                 <button class="btn-red">
                                     <a href="{{route('vacancy.details', $v->id)}}" class="btn-red-link">
 
-                                    <span>Müraciət et</span>
+                                    <span>@lang("Details")</span>
                                     </a>
                                 </button>
                             </div>
@@ -214,7 +214,7 @@
                     <div class="btn-more">
                         <a href="{{route('vacancy.list')}}" >
 
-                        <span>Hamısına bax</span>
+                        <span>@lang("View all")</span>
                         </a>
                     </div>
                 </div>

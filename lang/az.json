@@ -23,6 +23,7 @@
     "Name and surname": "Ad və soyad",
     "Email address": "E-mail ünvanı",
     "Subject": "Mövzu",
+    "Phone": "Telefon",
     "Subject of message": "Mesajınızın mövzusu",
     "Message": "Mesajınız",
     "Send message": "Mesaj göndər",
@@ -74,5 +75,24 @@
     "Join": "Qoşulun",
     "By subscribing, you agree to the privacy policy.": "Abunə olmaqla məxfilik siyasəti ilə razılaşmış olursunuz.",
     "Hotline": "Qaynar xətt",
-    "Message sent successfully": "Mesajınız uğurla göndərildi!"
+    "Message sent successfully": "Mesajınız uğurla göndərildi!",
+    "Why do people love working at Tamstore?": "Niyə insanlar Tamstore-da işləməyi sevir?",
+    "Active vacancies": "Aktiv vakansiyalar",
+    "Details": "Detallar",
+    "Career": "Karyera",
+    "General information about the job": "İş haqqında ümumi məlumat",
+    "Requirements": "Tələblər",
+    "Our advantages": "Üstünlüklərimiz",
+    "Application deadline": "Son müraciət tarixi",
+    "Apply": "Müraciət et",
+    "Share": "Paylaş",
+    "Apply to join the Tamstore+ team. Maximum file size: 10MB.": "Tamstore+ komandasında yer almaq üçün müraciət edin. Maksimum fayl ölçüsü: 10MB.",
+    "Attach your CV file here": "CV faylınızı buraya əlavə edin",
+    "Cancel": "Ləğv et",
+    "Send": "Göndər",
+    "Your application has been accepted.": "Müraciətiniz qəbul edildi",
+    "Your application has been accepted. The Tamstore+ team will contact you as soon as possible.": "Müraciətiniz qəbul olundu. Tamstore+ komandası ən qısa zamanda sizinlə əlaqə saxlayacak.",
+    "Close": "Bağla",
+    "Other vacancies": "Digər vakansiyalar"
+
 }
