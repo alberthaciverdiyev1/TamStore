@@ -141,32 +141,32 @@
 
                     </div>
 
-                    <div class="range-input-container">
+{{--                    <div class="range-input-container">--}}
 
-                        <span class="filter-title">{{strtoupper(__("Price Range"))}}</span>
+{{--                        <span class="filter-title">{{strtoupper(__("Price Range"))}}</span>--}}
 
-                        @php
-                            $minPrice = request()->input('min_price', 20);
-                            $maxPrice = request()->input('max_price', 450);
-                        @endphp
+{{--                        @php--}}
+{{--                            $minPrice = request()->input('min_price', 20);--}}
+{{--                            $maxPrice = request()->input('max_price', 450);--}}
+{{--                        @endphp--}}
 
-                        <div class="slider-container">
-                            <div class="slider-track" id="slider-track"></div>
+{{--                        <div class="slider-container">--}}
+{{--                            <div class="slider-track" id="slider-track"></div>--}}
 
-                            <input type="range" min="0" max="1000" value="{{ $minPrice }}" id="slider-min"
-                                   onchange="this.form.submit()">
-                            <input type="range" min="0" max="1000" value="{{ $maxPrice }}" id="slider-max"
-                                   onchange="this.form.submit()">
-                        </div>
+{{--                            <input type="range" min="0" max="1000" value="{{ $minPrice }}" id="slider-min"--}}
+{{--                                   onchange="this.form.submit()">--}}
+{{--                            <input type="range" min="0" max="1000" value="{{ $maxPrice }}" id="slider-max"--}}
+{{--                                   onchange="this.form.submit()">--}}
+{{--                        </div>--}}
 
-                        <div class="price-values">
-                            <span id="display-min">{{ $minPrice }} ₼</span>
-                            <span id="display-max">{{ $maxPrice }} ₼</span>
-                        </div>
+{{--                        <div class="price-values">--}}
+{{--                            <span id="display-min">{{ $minPrice }} ₼</span>--}}
+{{--                            <span id="display-max">{{ $maxPrice }} ₼</span>--}}
+{{--                        </div>--}}
 
-                        <input type="hidden" name="min_price" id="input-min-price" value="{{ $minPrice }}">
-                        <input type="hidden" name="max_price" id="input-max-price" value="{{ $maxPrice }}">
-                    </div>
+{{--                        <input type="hidden" name="min_price" id="input-min-price" value="{{ $minPrice }}">--}}
+{{--                        <input type="hidden" name="max_price" id="input-max-price" value="{{ $maxPrice }}">--}}
+{{--                    </div>--}}
 
                     <div class="brand-filter-wrapper">
                         <span class="filter-title">{{strtoupper(__("Brand Choice"))}}</span>
@@ -198,26 +198,26 @@
 
                     <span class="header-title">@lang("Products")</span>
 
-                    <div class="custom-sort-wrapper">
-                        <span class="sort-label">Sırala:</span>
+{{--                    <div class="custom-sort-wrapper">--}}
+{{--                        <span class="sort-label">Sırala:</span>--}}
 
-                        <div class="sort-container" id="customSort">
-                            <div class="sort-trigger" id="sortTrigger">
-                                <span id="sortSelectedText">Yenilər</span>
-                                <img src="{{asset('web/icons/accordion-arrow.svg')}}" alt="v" class="arrow-icon">
-                            </div>
+{{--                        <div class="sort-container" id="customSort">--}}
+{{--                            <div class="sort-trigger" id="sortTrigger">--}}
+{{--                                <span id="sortSelectedText">Yenilər</span>--}}
+{{--                                <img src="{{asset('web/icons/accordion-arrow.svg')}}" alt="v" class="arrow-icon">--}}
+{{--                            </div>--}}
 
-                            <div class="sort-options" id="sortOptions">
-                                <div class="sort-option hidden-option" data-value="newest">Yenilər</div>
+{{--                            <div class="sort-options" id="sortOptions">--}}
+{{--                                <div class="sort-option hidden-option" data-value="newest">Yenilər</div>--}}
 
-                                <div class="sort-option" data-value="price_asc">Ucuzdan bahaya</div>
-                                <div class="sort-option" data-value="price_desc">Bahadan ucuza</div>
-                                <div class="sort-option" data-value="popular">Populyar</div>
-                            </div>
+{{--                                <div class="sort-option" data-value="price_asc">Ucuzdan bahaya</div>--}}
+{{--                                <div class="sort-option" data-value="price_desc">Bahadan ucuza</div>--}}
+{{--                                <div class="sort-option" data-value="popular">Populyar</div>--}}
+{{--                            </div>--}}
 
-                            <input type="hidden" name="sort_by" id="sortHiddenInput" value="newest">
-                        </div>
-                    </div>
+{{--                            <input type="hidden" name="sort_by" id="sortHiddenInput" value="newest">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                 </div>
 

@@ -43,7 +43,6 @@
         </ul>
 
         <div class="tab-content" id="news-tabs-content">
-            <!-- (burada ilk tab-pane html strukturunu əsas götürürük) -->
             <div class="tab-pane fade show active" id="content-all" role="tabpanel" aria-labelledby="tab-all">
 
                 <div class="tab-pane-wrapper">

@@ -37,9 +37,7 @@
                     </div>
                     @if($vacancy->description)
                         <div class="vacancy-description-body">
-                            <p class="description-text">
                                 {!! $vacancy->description !!}
-                            </p>
                         </div>
                     @endif
                 </div>
@@ -116,7 +114,7 @@
                                 </div>
 
                                 <form id="vacancy-detail-form">
-                                    @csrf {{-- AJAX isteğinde güvenlik hatası almamak için eklendi --}}
+                                    @csrf
                                     <div class="modal-body">
                                         <input type="hidden" name="vacancy_id" id="modal-vacancy-id" value="{{ $vacancy->id }}">
 

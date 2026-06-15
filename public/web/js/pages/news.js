@@ -78,7 +78,9 @@ function renderNews(news, container) {
 
             <div class="news-infos">
                 <span class="news-title">${news.title}</span>
-                <p class="news-description">${news.description}</p>
+                <div class="news-description">
+                ${news.description}
+                </div>
             </div>
 
             <div class="news-card-footer">

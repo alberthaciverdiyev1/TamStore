@@ -111,17 +111,17 @@
 
                 <div class="vacancy-cards">
                     @foreach($vacancies as $vacancy)
-                        <div class="vacancy-card">
+                        <a  href="{{ route('vacancy.details', $vacancy->id) }}" class="vacancy-card">
 
-                            <a href="{{ route('vacancy.details', $vacancy->id) }}" class="card-title">
+                            <span class="card-title">
                                 {{ $vacancy->name }}
-                            </a>
+                            </span>
                             <button class="btn-red apply-btn" data-vacancy-id="{{ $vacancy->id }}" data-vacancy-name="{{ $vacancy->name }}" data-bs-toggle="modal" data-bs-target="#vacancyListModal">
                                 <span>@lang("Details")</span>
                             </button>
 
 
-                        </div>
+                        </a>
                     @endforeach
                 </div>
 

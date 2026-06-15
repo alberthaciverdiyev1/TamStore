@@ -178,10 +178,12 @@
 
                     @foreach($product->filters as $filter)
                         <div class="tecnical-info-box">
-                            <span>{{$filter->name}}</span>
-                            @foreach($filter->options as $option)
-                                <span>{{$option->name}}</span>
-                            @endforeach
+                            <span class="label">{{$filter->name}}</span>
+                            <div>
+                                @foreach($filter->options as $option)
+                                    <span class="value">{{$option->name}}</span>
+                                @endforeach
+                            </div>
                         </div>
                     @endforeach
 
@@ -196,10 +198,7 @@
 
                 <span class="title">@lang("Product details")</span>
 
-                <p class="detailed-description">
                     {!! $product->description !!}
-
-                </p>
 
             </div>
         </div>

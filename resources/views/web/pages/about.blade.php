@@ -35,10 +35,8 @@
 
                     <div class="red-line"></div>
 
-                    <p class="text-content">
                         @php $lang = app()->getLocale() @endphp
                         {!! setting("about.$lang") !!}
-                    </p>
 
                     <!-- <a href="" class="btn-more">
                         <span>Daha çox öyrən</span>
@@ -180,7 +178,7 @@
                     <img src="{{asset("storage/".setting('small_team_image'))}}" alt="">
                 </div>
 
-                <a href="{{route("home")}}" class="bento-item item-bottom-right">
+                <a href="{{route("vacancy.list")}}" class="bento-item item-bottom-right">
                     <div class="text-content">
                         <span class="title">@lang("Step into the Future with Us")</span>
                         <p class="description">@lang("We are improving ourselves for the better every day.")</p>
