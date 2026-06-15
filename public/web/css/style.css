@@ -3000,11 +3000,44 @@ textarea {
     justify-content: center;
     border-radius: 12px;
     border: 1px solid rgba(94, 63, 60, 0.2);
+    cursor: pointer;
+    position: relative;
 }
-
 .copy-button img {
     width: 14px;
     height: 14px;
+}
+.copy-button::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #111;
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.copy-button::before {
+    content: "";
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #111;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    pointer-events: none;
+}
+.copy-button:hover::after, .copy-button:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 .save-button {
@@ -3746,6 +3779,8 @@ textarea {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
+    color: #A3A3A3;
+
 }
 
 .news-card .news-infos .news-description p {
