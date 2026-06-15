@@ -1,5 +1,6 @@
-document.querySelectorAll(".copy-btn").forEach((btn) => {
+document.querySelectorAll(".copy-button").forEach((btn) => {
     let timer;
+
 
     btn.addEventListener("click", async (e) => {
         e.preventDefault();
