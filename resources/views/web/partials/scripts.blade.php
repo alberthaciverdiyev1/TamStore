@@ -18,6 +18,8 @@
 <script src="{{asset('web/js/splide.js')}}"></script>
 <script src="{{asset('web/js/header.js')}}"></script>
 <script src="{{asset('web/js/copyButton.js')}}"></script>
+<script src="{{asset('web/js/accordion.js')}}"></script>
+<script src="{{asset('web/js/popup.js')}}"></script>
 
 {!! setting('scripts.footer') !!}
 

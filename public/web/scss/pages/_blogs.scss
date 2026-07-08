@@ -43,7 +43,7 @@
 
                 .blog-cards {
                     display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+                    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
                     gap: 16px;
 
                     @include mq(phone-only) {

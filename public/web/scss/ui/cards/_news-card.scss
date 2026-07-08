@@ -1,15 +1,17 @@
 .news-card {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
     overflow: hidden;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
     background: #1B1B1C;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease-in;
+    max-width: 280px;
 
-    &:hover{
-        transform: scale(1.05);
+    &:hover {
+        transform: scale(1.02);
+        border: 1px solid #c2bbbb;
     }
 
     .news-image {
@@ -30,6 +32,10 @@
             position: absolute;
             top: 8px;
             left: 8px;
+            background: #1B1B1C;
+            padding: 5px;
+            border-radius: 6px;
+
 
             span {
                 color: #78FC9C;
@@ -46,13 +52,13 @@
     .news-infos {
         display: flex;
         flex-direction: column;
-        gap: 16px;
-        padding: 16px;
+        gap: 5px;
+        padding: 12px;
         padding-bottom: 0;
 
         .news-title {
             color: #FFF;
-            font-size: 24px;
+            font-size: 18px;
             font-style: normal;
             font-weight: 500;
             line-height: 33px;
@@ -66,7 +72,7 @@
 
         .news-description {
             color: #A3A3A3;
-            font-size: 16px;
+            font-size: 12px;
             font-style: normal;
             font-weight: 500;
             line-height: 26px;
@@ -82,7 +88,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 16px;
+        padding: 12px;
 
         .news-date {
             color: #737373;
@@ -93,8 +99,8 @@
         }
 
         img {
-            width: 18px;
-            height: 18px;
+            width: 14px;
+            height: 14px;
         }
     }
 

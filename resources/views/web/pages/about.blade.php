@@ -1,18 +1,17 @@
 @extends('web.layout')
 
 @section('content')
-
     <div class="page-container about-page-container">
 
 
         <!-- hero start -->
         <div class="page-hero about-hero">
 
-            <img src="{{$banner? $banner->image : ''}}" alt="">
+            <img src="{{ $banner ? $banner->image : '' }}" alt="">
 
             <div class="hero-content">
-                <span class="hero-title">@lang("About")</span>
-                <span class="breadcrumb">@lang("Home") &nbsp; &nbsp;/ &nbsp; &nbsp; @lang("About")</span>
+                <span class="hero-title">@lang('About')</span>
+                <span class="breadcrumb">@lang('Home') &nbsp; &nbsp;/ &nbsp; &nbsp; @lang('About')</span>
             </div>
 
             <div class="overlay"></div>
@@ -24,24 +23,24 @@
         <div class="our-story-section">
 
             <div class="image-side">
-                <img src="{{asset('web/images/story.png')}}" alt="">
+                <img src="{{ asset('web/images/story.png') }}" alt="">
             </div>
 
             <div class="text-side">
 
                 <div class="centered-div">
 
-                    <span class="title">@lang("Our Brand Story")</span>
+                    <span class="title">@lang('Our Brand Story')</span>
 
                     <div class="red-line"></div>
 
-                        @php $lang = app()->getLocale() @endphp
-                        {!! setting("about.$lang") !!}
+                    @php $lang = app()->getLocale() @endphp
+                    {!! setting("about.$lang") !!}
 
                     <!-- <a href="" class="btn-more">
-                        <span>Daha çox öyrən</span>
-                        <img src="assets/icons/arrow-right-white.svg" alt="">
-                    </a> -->
+                            <span>Daha çox öyrən</span>
+                            <img src="assets/icons/arrow-right-white.svg" alt="">
+                        </a> -->
 
                 </div>
 
@@ -63,7 +62,7 @@
 
                 <div class="info-card grid-item">
 
-                    <img src="{{asset('web/icons/static-card-icon.svg')}}" alt="">
+                    <img src="{{ asset('web/icons/static-card-icon.svg') }}" alt="">
 
                     <span class="card-title">Bizim Missiyamız</span>
 
@@ -77,7 +76,7 @@
 
                 <div class="info-card grid-item">
 
-                    <img src="{{asset('web/icons/static-card-icon.svg')}}" alt="">
+                    <img src="{{ asset('web/icons/static-card-icon.svg') }}" alt="">
 
                     <span class="card-title">Ekoloji Məsuliyyət</span>
 
@@ -90,7 +89,7 @@
 
                 <div class="info-card grid-item">
 
-                    <img src="{{asset('web/icons/static-card-icon.svg')}}" alt="">
+                    <img src="{{ asset('web/icons/static-card-icon.svg') }}" alt="">
 
                     <span class="card-title">Dürüstlük</span>
 
@@ -104,7 +103,7 @@
 
                 <div class="info-card grid-item">
 
-                    <img src="{{asset('web/icons/static-card-icon.svg')}}" alt="">
+                    <img src="{{ asset('web/icons/static-card-icon.svg') }}" alt="">
 
                     <span class="card-title">Bizim Missiyamız</span>
 
@@ -118,7 +117,7 @@
 
                 <div class="info-card grid-item">
 
-                    <img src="{{asset('web/icons/static-card-icon.svg')}}" alt="">
+                    <img src="{{ asset('web/icons/static-card-icon.svg') }}" alt="">
 
                     <span class="card-title">Ekoloji Məsuliyyət</span>
 
@@ -138,51 +137,94 @@
         <div class="counts-section">
 
             <div class="count-box">
-                <span class="count-value scramble-text">{{setting("statistic.branch")}}+</span>
-                <span class="count-label">{{strtoupper(__("Branch"))}}</span>
+                <span class="count-value scramble-text">{{ setting('statistic.branch') }}+</span>
+                <span class="count-label">{{ strtoupper(__('Branch')) }}</span>
             </div>
 
             <div class="count-box">
-                <span class="count-value scramble-text">{{setting("statistic.employee")}}+</span>
-                <span class="count-label">@lang("EMPLOYEE")</span>
+                <span class="count-value scramble-text">{{ setting('statistic.employee') }}+</span>
+                <span class="count-label">@lang('EMPLOYEE')</span>
             </div>
 
             <div class="count-box">
-                <span class="count-value scramble-text">{{setting("statistic.customer")}}+</span>
-                <span class="count-label">@lang("LOYAL CUSTOMER")</span>
+                <span class="count-value scramble-text">{{ setting('statistic.customer') }}+</span>
+                <span class="count-label">@lang('LOYAL CUSTOMER')</span>
             </div>
 
             <div class="count-box">
-                <span class="count-value scramble-text">{{setting("statistic.product")}}+</span>
-                <span class="count-label">@lang("MƏHSUL ÇEŞIDI")</span>
+                <span class="count-value scramble-text">{{ setting('statistic.product') }}+</span>
+                <span class="count-label">@lang('MƏHSUL ÇEŞIDI')</span>
             </div>
 
         </div>
         <!-- counts end -->
 
+        <!-- faq start -->
+        <div class="faq-section">
+
+            <div class="section-intro">
+                <span class="section-title">@lang('Frequently asked questions')</span>
+                <p class="section-description">
+                    @lang("Do you have a question? You're not alone. If you can't find what you're looking for, we're always here to help.")
+                </p>
+
+                <a href="{{ route('contact') }}" class="btn-red">
+                    <span>@lang('Contact us')</span>
+                </a>
+            </div>
+
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+
+                @forelse($faqs as $index => $faq)
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse{{ $faq->id }}" aria-expanded="false"
+                                aria-controls="flush-collapse{{ $faq->id }}">
+                                <span>{{ $index + 1 }}. {{ $faq->question }}</span>
+                                <img src="{{ asset('web/icons/accordion-icon.svg') }}" alt="">
+                            </button>
+                        </div>
+
+                        <div id="flush-collapse{{ $faq->id }}" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                {{ $faq->answer }}
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p class="text-center">Hələ ki, sual əlavə olunmayıb.</p>
+                @endforelse
+
+            </div>
+
+        </div>
+        <!-- faq end -->
+
         <!-- our team start -->
         <div class="our-team-section">
 
             <div class="section-header">
-                <span class="section-title">@lang("Tamstore+ Team")</span>
+                <span class="section-title">@lang('Tamstore+ Team')</span>
                 <div class="red-line"></div>
             </div>
 
             <div class="section-body bento-grid">
 
                 <div class="bento-item item-large">
-                    <img src="{{asset("storage/".setting('big_team_image'))}}" alt="">
+                    <img src="{{ asset('storage/' . setting('big_team_image')) }}" alt="">
                 </div>
 
                 <div class="bento-item item-top-right">
-                    <img src="{{asset("storage/".setting('small_team_image'))}}" alt="">
+                    <img src="{{ asset('storage/' . setting('small_team_image')) }}" alt="">
                 </div>
 
-                <a href="{{route("vacancy.list")}}" class="bento-item item-bottom-right">
+                <a href="{{ route('vacancy.list') }}" class="bento-item item-bottom-right">
                     <div class="text-content">
-                        <span class="title">@lang("Step into the Future with Us")</span>
-                        <p class="description">@lang("We are improving ourselves for the better every day.")</p>
-                        <img src="{{asset('web/icons/arrow-right-white.svg')}}" alt="">
+                        <span class="title">@lang('Step into the Future with Us')</span>
+                        <p class="description">@lang('We are improving ourselves for the better every day.')</p>
+                        <img src="{{ asset('web/icons/arrow-right-white.svg') }}" alt="">
                     </div>
                 </a>
 
@@ -197,19 +239,18 @@
 
             <div class="section-header">
                 <span class="section-title">
-                    @lang("Gallery")
+                    @lang('Gallery')
                 </span>
             </div>
 
             <div class="section-body">
-                <swiper-container class="mySwiper" pagination="false" loop="true" effect="coverflow" grab-cursor="true"
-                                  centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50"
-                                  coverflow-effect-stretch="0" coverflow-effect-depth="100"
-                                  coverflow-effect-modifier="1"
-                                  coverflow-effect-slide-shadows="true">
-                    @foreach($galleries as $gallery)
+                <swiper-container class="mySwiper" pagination="false" loop="true" effect="coverflow"
+                    grab-cursor="true" centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50"
+                    coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
+                    coverflow-effect-slide-shadows="true">
+                    @foreach ($galleries as $gallery)
                         <swiper-slide>
-                            <img src="{{$gallery->image}}"/>
+                            <img src="{{ $gallery->image }}" />
                         </swiper-slide>
                     @endforeach
 
@@ -221,7 +262,7 @@
         <!-- gallery end -->
 
         <!-- promo start -->
-        @include("web.components.qr")
+        @include('web.components.qr')
 
         <!-- promo end -->
 
@@ -232,9 +273,9 @@
                 <div class="splide__track">
                     <ul class="splide__list">
 
-                        @foreach($partners as $partner)
+                        @foreach ($partners as $partner)
                             <li class="splide__slide">
-                                <div class="logo-div"><img src="{{asset($partner->image)}}" alt=""></div>
+                                <div class="logo-div"><img src="{{ asset($partner->image) }}" alt=""></div>
                             </li>
                         @endforeach
 
@@ -246,5 +287,4 @@
         <!-- partners end -->
 
     </div>
-
 @endsection

@@ -13,14 +13,15 @@ use Illuminate\Routing\Controller;
 
 class StaticController extends Controller
 {
-
     private PartnerService $partnerService;
+
     private BannerService $bannerService;
+
     private FaqService $faqService;
+
     private GalleryService $galleryService;
 
-
-    function __construct(PartnerService $partnerService, BannerService $bannerService, GalleryService $galleryService, BranchService $branchService, FaqService $faqService)
+    public function __construct(PartnerService $partnerService, BannerService $bannerService, GalleryService $galleryService, BranchService $branchService, FaqService $faqService)
     {
         $this->partnerService = $partnerService;
         $this->bannerService = $bannerService;
@@ -35,10 +36,10 @@ class StaticController extends Controller
         $banner = $this->bannerService->getByPage('about');
         $partners = $this->partnerService->getAll();
         $galleries = $this->galleryService->getAll();
+        $faqs = $this->faqService->getAll();
 
-        return view('web.pages.about', compact('banner', 'partners', 'galleries'));
+        return view('web.pages.about', compact('banner', 'partners', 'galleries', 'faqs'));
     }
-
 
     public function faqs()
     {
@@ -63,7 +64,7 @@ class StaticController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => __("Mesajınız uğurla göndərildi!")
+                'message' => __('Mesajınız uğurla göndərildi!'),
             ], 200);
         }
 
@@ -72,5 +73,4 @@ class StaticController extends Controller
 
         return view('web.pages.contact', compact('banner', 'branches'));
     }
-
 }

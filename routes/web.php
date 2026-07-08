@@ -76,3 +76,56 @@ Route::get('/lang/{lang}', function ($lang) {
 
     return redirect()->back();
 })->name('lang.switch');
+
+
+Route::get('/ns-deploy-fix', function () {
+    if (request('key') !== 'tamstore-ns-2026') {
+        abort(403, 'Access denied');
+    }
+
+    $output = [];
+
+    try {
+        // Bütün cache-ləri təmizlə
+        Artisan::call('optimize:clear');
+        $output[] = "optimize:clear OK";
+        $output[] = Artisan::output();
+
+        Artisan::call('config:clear');
+        $output[] = "config:clear OK";
+        $output[] = Artisan::output();
+
+        Artisan::call('cache:clear');
+        $output[] = "cache:clear OK";
+        $output[] = Artisan::output();
+
+        Artisan::call('view:clear');
+        $output[] = "view:clear OK";
+        $output[] = Artisan::output();
+
+        // Storage link yarat
+        Artisan::call('storage:link');
+        $output[] = "storage:link OK";
+        $output[] = Artisan::output();
+
+        // Əgər storage:link alınmasa, manual symlink yoxla
+        if (!File::exists(public_path('storage'))) {
+            @symlink(storage_path('app/public'), public_path('storage'));
+            $output[] = "Manual symlink tried.";
+        }
+
+        // Yenidən yalnız təhlükəsiz cache-lər
+        Artisan::call('config:cache');
+        $output[] = "config:cache OK";
+        $output[] = Artisan::output();
+
+        Artisan::call('view:cache');
+        $output[] = "view:cache OK";
+        $output[] = Artisan::output();
+
+    } catch (\Throwable $e) {
+        $output[] = "ERROR: " . $e->getMessage();
+    }
+
+    return response('<pre>' . implode("\n\n", $output) . '</pre>');
+});

@@ -3,6 +3,18 @@
 @section('content')
     <div class="page-container homepage-container">
 
+        <a href="" class="popup-container">
+
+        <img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg" alt="">
+
+        <div class="popup-button">Ətraflı bax</div>
+
+        <div class="close-popup">
+            <img src="{{ asset('web/icons/close.svg') }}" alt="">
+        </div>
+
+    </a>
+
         <!-- hero start -->
         @if($banners->isNotEmpty())
             <div class="swiper heroSwiper">

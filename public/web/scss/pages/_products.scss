@@ -7,7 +7,7 @@
         gap: 64px;
         padding: 50px 32px 25px 32px;
 
-        @include mq(tablet-portrait-up){
+        @include mq(tablet-portrait-up) {
             flex-direction: column;
             gap: 32px;
             padding: 50px 16px 25px 16px;
@@ -218,12 +218,11 @@
 
                 .product-cards {
                     display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(277px, 1fr));
-                    // grid-template-columns: repeat(3, 1fr);
-                    justify-items: center;
+                    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
                     gap: 16px;
                     overflow-y: scroll;
                     scrollbar-width: none;
+                    padding: 12px;
 
                     @include mq(desktop-up) {
                         grid-template-columns: repeat(2, 1fr);

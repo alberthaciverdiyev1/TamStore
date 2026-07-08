@@ -3,22 +3,21 @@
 .accordion {
     display: flex;
     flex-direction: column;
-    gap: 24px;
 
     .accordion-item {
         display: flex;
         flex-direction: column;
-        gap: 16px;
         background-color: transparent;
         border-bottom: 1px solid #5F5F5F;
-        padding-bottom: 16px;
         color: #fff;
+        padding: 12px;
 
         &:last-child {
             border: none;
         }
 
         .accordion-header {
+            padding: 0 !important;
 
             .accordion-button {
                 padding: 0;
@@ -79,8 +78,10 @@
     }
 
     .accordion-collapse {
+
         .accordion-body {
-            padding: 0;
+            padding: 12px;
+            padding-bottom: 0;
             font-size: 14px;
             font-style: normal;
             font-weight: 400;

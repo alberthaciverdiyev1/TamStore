@@ -4,10 +4,34 @@
     align-items: center;
     justify-content: center;
     background: #2A2A2B;
+    width: 201px;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+        transform: scale(1.02);
+        .overlay {
+            backdrop-filter: grayscale(0%);
+            background-color: rgba(0, 0, 0, 0);
+        }
+    }
 
     img {
         width: 87.014px;
         height: 48.946px;
         aspect-ratio: 16/9;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        backdrop-filter: grayscale(100%);
+        background-color: rgba(0, 0, 0, 0.4);
+        transition: all 0.3s ease;
     }
 }

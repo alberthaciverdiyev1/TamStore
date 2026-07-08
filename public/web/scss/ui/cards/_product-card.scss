@@ -1,17 +1,21 @@
 .product-card {
-    display: inline-block;
-    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     overflow: hidden;
-    position: relative;
-    width: 100%;
+    border-radius: 8px;
+    background: #1B1B1C;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease-in;
+    max-width: 240px;
 
-    &:hover{
-        transform: scale(1.05);
+    &:hover {
+        transform: scale(1.02);
+        border: 1px solid #c2bbbb;
     }
 
     .product-image {
-        height: 320px;
+        height: 200px;
 
         img {
             object-fit: cover;
@@ -21,7 +25,7 @@
     }
 
     .product-infos {
-        padding: 32px;
+        padding: 12px;
         display: flex;
         flex-direction: column;
         gap: 8px;

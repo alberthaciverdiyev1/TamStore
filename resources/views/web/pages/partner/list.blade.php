@@ -54,6 +54,8 @@
                     @foreach($partners as $partner)
                     <div class="partner-card">
                         <img src="{{$partner->image}}" alt="">
+
+                        <div class="overlay"></div>
                     </div>
                     @endforeach
                 </div>
