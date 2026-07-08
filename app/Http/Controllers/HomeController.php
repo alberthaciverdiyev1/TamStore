@@ -8,6 +8,7 @@ use App\Services\CategoryService;
 use App\Services\GalleryService;
 use App\Services\HomeCardService;
 use App\Services\PartnerService;
+use App\Services\PopupService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -19,8 +20,9 @@ class HomeController extends Controller
     private CategoryService $categoryService;
     private BlogService $blogService;
     private GalleryService $galleryService;
+    private PopupService $popupService;
 
-    function __construct(BannerService $bannerService, PartnerService $partnerService, HomeCardService $homeCardService, CategoryService $categoryService, BlogService $blogService,GalleryService $galleryService)
+    function __construct(BannerService $bannerService, PartnerService $partnerService, HomeCardService $homeCardService, CategoryService $categoryService, BlogService $blogService, GalleryService $galleryService, PopupService $popupService)
     {
         $this->bannerService = $bannerService;
         $this->partnerService = $partnerService;
@@ -28,6 +30,7 @@ class HomeController extends Controller
         $this->categoryService = $categoryService;
         $this->blogService = $blogService;
         $this->galleryService = $galleryService;
+        $this->popupService = $popupService;
     }
 
     public function home()
@@ -38,7 +41,8 @@ class HomeController extends Controller
         $categories = $this->categoryService->getFeatured();
         $blogs = $this->blogService->getAll();
         $galleries = $this->galleryService->getAll();
-        return view('web.pages.home', compact('banners', 'partners', 'homeCards', 'categories', 'blogs','galleries'));
+        $popup = $this->popupService->getActive();
+        return view('web.pages.home', compact('banners', 'partners', 'homeCards', 'categories', 'blogs', 'galleries', 'popup'));
     }
 
 

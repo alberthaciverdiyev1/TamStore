@@ -6,47 +6,56 @@
 <body>
 
 
-@if (Request::is('/'))
-    <a href="/etrafli-bax" class="popup-container close">
-        <div class="popup-content">
-            <img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg" alt="">
+@isset($popup)
+    @if (Request::is('/'))
 
-            <div class="popup-button">
-                <span>Ətraflı bax</span>
-            </div>
+        <div class="popup-container close">
+            <div class="popup-content">
+                @if($popup->url)
+                    <a href="{{ $popup->url }}">
+                        <img src="{{ asset('storage/' . $popup->image) }}" alt="">
+                        <div class="popup-button">
+                            <span>@lang("Details")</span>
+                        </div>
+                    </a>
+                @else
+                    <img src="{{ asset('storage/' . $popup->image) }}" alt="">
+                @endif
 
-            <div class="close-popup">
-                <img src="{{ asset('web/icons/close.svg') }}" alt="">
+                <div class="close-popup">
+                    <img src="{{ asset('web/icons/close.svg') }}" alt="">
+                </div>
             </div>
         </div>
-    </a>
-@endif
 
-    <!-- header start -->
-    <div id="header-placeholder">
-        @include('web.partials.header')
-    </div>
-    <!-- header end -->
+    @endif
+@endisset
 
-    <!-- main start -->
-    {!! setting('scripts.body') !!}
+<!-- header start -->
+<div id="header-placeholder">
+    @include('web.partials.header')
+</div>
+<!-- header end -->
 
-    @yield('content')
-    <!-- main end -->
+<!-- main start -->
+{!! setting('scripts.body') !!}
 
-    <!-- footer start -->
-    <div id="footer-placeholder">
-        @include('web.partials.footer')
-    </div>
-    <!-- footer end -->
+@yield('content')
+<!-- main end -->
 
-    <button class="btn-red phone-button">
-        <span>{{ setting('contact.phone') }}</span>
-    </button>
+<!-- footer start -->
+<div id="footer-placeholder">
+    @include('web.partials.footer')
+</div>
+<!-- footer end -->
+
+<button class="btn-red phone-button">
+    <span>{{ setting('contact.phone') }}</span>
+</button>
 
 
-    <!-- scripts -->
-    @include('web.partials.scripts')
+<!-- scripts -->
+@include('web.partials.scripts')
 </body>
 
 </html>
