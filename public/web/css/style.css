@@ -3283,6 +3283,7 @@ textarea {
     overflow: hidden;
     max-width: 500px;
     position: relative;
+    border: 1px solid #656464;
 }
 .popup-container .popup-content img {
     -o-object-fit: cover;
