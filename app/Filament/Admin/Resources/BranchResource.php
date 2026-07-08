@@ -15,6 +15,8 @@ class BranchResource extends Resource
     protected static ?string $model = Branch::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-map-pin';
+    protected static ?string $navigationGroup = 'Ümumi';
+    protected static ?int $navigationSort = 15;
     protected static ?string $modelLabel = 'Filial';
     protected static ?string $pluralModelLabel = 'Filiallar';
 

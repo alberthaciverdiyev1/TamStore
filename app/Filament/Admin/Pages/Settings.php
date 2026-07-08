@@ -15,7 +15,9 @@ use Filament\Support\Enums\IconPosition;
 class Settings extends BaseSettings
 {
     protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
-    protected static ?string $navigationLabel = 'Tənzimləmələr';
+    protected static ?string $navigationGroup = 'Ümumi';
+    protected static ?int $navigationSort = 17;
+    protected static ?string $navigationLabel = 'Parametrlər';
     protected static ?string $title = 'Sistem Tənzimləmələri';
 
     public function schema(): array

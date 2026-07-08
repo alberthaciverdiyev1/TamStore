@@ -16,6 +16,8 @@ class FilterResource extends Resource
     protected static ?string $model = Filter::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-funnel';
+    protected static ?string $navigationGroup = 'Məhsullar';
+    protected static ?int $navigationSort = 8;
     protected static ?string $modelLabel = 'Filter';
     protected static ?string $pluralModelLabel = 'Filterlər';
 

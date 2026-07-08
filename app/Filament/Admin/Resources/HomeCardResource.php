@@ -15,6 +15,8 @@ class HomeCardResource extends Resource
     protected static ?string $model = HomeCard::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Ümumi';
+    protected static ?int $navigationSort = 4;
     protected static ?string $modelLabel = 'Ana Səhifə Kartı';
     protected static ?string $pluralModelLabel = 'Ana Səhifə Kartları';
 

@@ -15,6 +15,8 @@ class NewsCategoryResource extends Resource
     protected static ?string $model = NewsCategory::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
+    protected static ?string $navigationGroup = 'Xəbərlər';
+    protected static ?int $navigationSort = 12;
     protected static ?string $modelLabel = 'Xəbər Kateqoriyası';
     protected static ?string $pluralModelLabel = 'Xəbər Kateqoriyaları';
 

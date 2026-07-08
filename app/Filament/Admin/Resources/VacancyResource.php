@@ -15,6 +15,9 @@ class VacancyResource extends Resource
     protected static ?string $model = Vacancy::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
+    protected static ?string $navigationGroup = 'Karyera';
+    protected static ?int $navigationGroupSort = 4;
+    protected static ?int $navigationSort = 14;
     protected static ?string $modelLabel = 'Vakansiya';
     protected static ?string $pluralModelLabel = 'Vakansiyalar';
 

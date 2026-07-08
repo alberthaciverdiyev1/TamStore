@@ -16,6 +16,9 @@ class BlogResource extends Resource
     protected static ?string $model = Blog::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationGroup = 'Bloqlar';
+    protected static ?int $navigationGroupSort = 2;
+    protected static ?int $navigationSort = 9;
     protected static ?string $modelLabel = 'Bloq';
     protected static ?string $pluralModelLabel = 'Bloqlar';
 

@@ -14,8 +14,10 @@ class VacancyApplicationResource extends Resource
     protected static ?string $model = VacancyApplication::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
-    protected static ?string $modelLabel = 'Müraciət';
-    protected static ?string $pluralModelLabel = 'Müraciətlər';
+    protected static ?string $navigationGroup = 'Karyera';
+    protected static ?int $navigationSort = 19;
+    protected static ?string $modelLabel = 'Vakansiya müraciəti';
+    protected static ?string $pluralModelLabel = 'Vakansiya müraciətləri';
 
     public static function form(Form $form): Form
     {

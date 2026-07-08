@@ -14,6 +14,8 @@ class SubscriberResource extends Resource
     protected static ?string $model = Subscriber::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-envelope';
+    protected static ?string $navigationGroup = 'Ümumi';
+    protected static ?int $navigationSort = 20;
     protected static ?string $modelLabel = 'Abunə';
     protected static ?string $pluralModelLabel = 'Abunələr';
 
