@@ -11,10 +11,11 @@ class Category extends Model
     use SoftDeletes;
 
     protected $table = 'categories';
-    protected $fillable = ['name','info', 'image', 'status'];
+    protected $fillable = ['name', 'info', 'image', 'status', 'is_featured'];
 
     protected $casts = [
         'status' => 'boolean',
+        'is_featured' => 'boolean',
         'name' => 'array',
         'info' => 'array',
     ];

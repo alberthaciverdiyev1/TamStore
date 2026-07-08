@@ -150,12 +150,16 @@
                             <div class="swiper-slide">
                                 <a href="{{ route('products', ['category_id' => $category->id]) }}" class="product-card">
                                     <div class="product-image">
-                                        <img src="{{$category->image}}" alt="">
+                                        @if($category->image)
+                                            <img src="{{$category->image}}" alt="">
+                                        @endif
                                     </div>
 
                                     <div class="product-infos">
                                         <span class="product-title">{{$category->name}}</span>
-                                        <p class="product-description">{{$category->info}}</p>
+                                        @if($category->info)
+                                            <p class="product-description">{{$category->info}}</p>
+                                        @endif
                                     </div>
 
                                 </a>

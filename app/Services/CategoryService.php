@@ -14,15 +14,32 @@ class CategoryService
             ->with('filters')
             ->orderBy('created_at', 'desc')
             ->get()
-            ->map(fn (Category $category) => (object)[
-                'id' => $category->id,
-                'name' => $category->name[$locale] ?? $category->name['az'] ?? '',
-                'info' => $category->info[$locale] ?? $category->info['az'] ?? '',
-                'image' => $category->image ? asset('storage/' . $category->image) : null,
-                'filters' => $category->filters->map(fn ($filter) => (object)[
-                    'id' => $filter->id,
-                    'name' => $filter->name[$locale] ?? $filter->name['az'] ?? '',
-                ]),
-            ]);
+            ->map(fn (Category $category) => $this->mapCategory($category, $locale));
+    }
+
+    public function getFeatured(string $locale = null): \Illuminate\Support\Collection
+    {
+        $locale ??= app()->getLocale();
+
+        return Category::where('status', true)
+            ->where('is_featured', true)
+            ->with('filters')
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->map(fn (Category $category) => $this->mapCategory($category, $locale));
+    }
+
+    private function mapCategory(Category $category, string $locale): object
+    {
+        return (object)[
+            'id' => $category->id,
+            'name' => $category->name[$locale] ?? $category->name['az'] ?? '',
+            'info' => $category->info ? ($category->info[$locale] ?? $category->info['az'] ?? '') : '',
+            'image' => $category->image ? asset('storage/' . $category->image) : null,
+            'filters' => $category->filters->map(fn ($filter) => (object)[
+                'id' => $filter->id,
+                'name' => $filter->name[$locale] ?? $filter->name['az'] ?? '',
+            ]),
+        ];
     }
 }

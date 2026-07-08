@@ -52,11 +52,13 @@ class CategoryResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->required()
                     ->label('Şəkil'),
                 Forms\Components\Toggle::make('status')
+                    ->default(true)
                     ->required()
                     ->label('Status'),
+                Forms\Components\Toggle::make('is_featured')
+                    ->label('Önə çıxarılan'),
                 Forms\Components\Select::make('filters')
                     ->multiple()
                     ->relationship('filters', 'name')
@@ -83,6 +85,9 @@ class CategoryResource extends Resource
                     ->sortable(),
                 Tables\Columns\IconColumn::make('status')
                     ->label('Status')
+                    ->boolean(),
+                Tables\Columns\IconColumn::make('is_featured')
+                    ->label('Önə çıxarılan')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Yaradılma Tarixi')

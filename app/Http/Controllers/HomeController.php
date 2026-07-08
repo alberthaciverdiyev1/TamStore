@@ -35,7 +35,7 @@ class HomeController extends Controller
         $banners = $this->bannerService->getByPage('home');
         $partners = $this->partnerService->getAll();
         $homeCards = $this->homeCardService->getAll();
-        $categories = $this->categoryService->getAll();
+        $categories = $this->categoryService->getFeatured();
         $blogs = $this->blogService->getAll();
         $galleries = $this->galleryService->getAll();
         return view('web.pages.home', compact('banners', 'partners', 'homeCards', 'categories', 'blogs','galleries'));
