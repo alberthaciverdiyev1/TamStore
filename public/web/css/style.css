@@ -4280,3 +4280,10 @@ textarea {
     padding: 12px;
     text-decoration: none;
 }/*# sourceMappingURL=style.css.map */
+
+html.no-scroll,
+body.no-scroll {
+    overflow: hidden !important;
+    height: 100vh !important;
+    touch-action: none;
+}
