@@ -29,7 +29,7 @@ class ProductController extends Controller
 
     public function products(Request $request)
     {
-        $banner = $this->bannerService->getByPage('product');
+        $banner = $this->bannerService->getByPage('products');
         $brands = $this->brandService->getAll();
         $partners = $this->partnerService->getAll();
         $filters = $this->filterService->getAll();

@@ -25,6 +25,7 @@ class BannerService
         }
 
         $banner = $query->latest()->first();
+
         return $banner ? $mapper($banner) : null;
     }
 }
