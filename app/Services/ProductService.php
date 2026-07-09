@@ -11,23 +11,29 @@ class ProductService
     public function getAll(Request $request): LengthAwarePaginator
     {
         $locale = app()->getLocale();
-        $query = Product::query();
-
-//        $query->where('status', true);
+        $query = Product::query()->where('status', true);
 
         if ($request->filled('category_id')) {
             $query->where('category_id', $request->input('category_id'));
         }
 
-        if ($request->filled('brands')) {
+        if ($request->filled('categories') && is_array($request->input('categories'))) {
+            $query->whereIn('category_id', $request->input('categories'));
+        }
+
+        if ($request->filled('brands') && is_array($request->input('brands'))) {
             $query->whereIn('brand_id', $request->input('brands'));
         }
 
-        if ($request->filled('filter_options') && is_array($request->input('filter_options'))) {
-            $options = $request->input('filter_options');
+        if ($request->filled('filters') && is_array($request->input('filters'))) {
+            $query->whereHas('filterOptions', function ($q) use ($request) {
+                $q->whereIn('filter_id', $request->input('filters'));
+            });
+        }
 
-            $query->whereHas('filterOptions', function ($q) use ($options) {
-                $q->whereIn('filter_option_id', $options);
+        if ($request->filled('filter_options') && is_array($request->input('filter_options'))) {
+            $query->whereHas('filterOptions', function ($q) use ($request) {
+                $q->whereIn('filter_option_id', $request->input('filter_options'));
             });
         }
 
@@ -45,6 +51,7 @@ class ProductService
                     : null,
             ]);
     }
+
     public function details(string $slug): object
     {
         $locale = app()->getLocale();
@@ -83,9 +90,7 @@ class ProductService
             'images'            => $product->images->map(function ($img) {
                 return $img->image ? asset('storage/' . $img->image) : null;
             })->filter()->values()->all(),
-
             'filters'           => $groupedFilters,
         ];
     }
-
 }

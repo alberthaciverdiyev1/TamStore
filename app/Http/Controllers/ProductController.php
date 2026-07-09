@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\BannerService;
 use App\Services\BrandService;
+use App\Services\CategoryFilterService;
 use App\Services\FilterService;
 use App\Services\PartnerService;
 use App\Services\ProductService;
@@ -18,13 +19,16 @@ class ProductController extends Controller
     private FilterService $filterService;
     private ProductService $productService;
 
-    function __construct(PartnerService $partnerService, BannerService $bannerService, BrandService $brandService, FilterService $filterService, ProductService $productService)
+    private CategoryFilterService $categoryFilterService;
+
+    function __construct(PartnerService $partnerService, BannerService $bannerService, BrandService $brandService, FilterService $filterService, ProductService $productService,CategoryFilterService $categoryFilterService)
     {
         $this->partnerService = $partnerService;
         $this->brandService = $brandService;
         $this->bannerService = $bannerService;
         $this->filterService = $filterService;
         $this->productService = $productService;
+        $this->categoryFilterService = $categoryFilterService;
     }
 
     public function products(Request $request)
@@ -32,10 +36,10 @@ class ProductController extends Controller
         $banner = $this->bannerService->getByPage('products');
         $brands = $this->brandService->getAll();
         $partners = $this->partnerService->getAll();
-        $filters = $this->filterService->getAll();
+//        $filters = $this->filterService->getAll();
+        $categories = $this->categoryFilterService->getAll();
         $products = $this->productService->getAll($request);
-
-        return view('web.pages.product.list', compact('banner', 'partners', 'brands', 'filters', 'products'));
+        return view('web.pages.product.list', compact('banner', 'partners', 'brands', 'categories', 'products'));
     }
 
 

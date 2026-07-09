@@ -22,134 +22,211 @@
             <div class="product-filters">
 
                 <form action="{{ url()->current() }}" method="GET" id="filter-form">
-                    {{-- URL'deki arama (search) kelimesi gibi diğer parametreler kaybolmasın diye koruyoruz --}}
+{{--                    @foreach (request()->except(['filter_options', 'min_price', 'max_price', 'brands', 'page']) as $key => $value)--}}
+{{--                        <input type="hidden" name="{{ $key }}" value="{{ $value }}">--}}
+{{--                    @endforeach--}}
+
                     @foreach (request()->except(['filter_options', 'min_price', 'max_price', 'brands', 'page']) as $key => $value)
-                        <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+                        @if(is_array($value))
+                            @foreach($value as $subValue)
+                                <input type="hidden" name="{{ $key }}[]" value="{{ $subValue }}">
+                            @endforeach
+                        @else
+                            <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+                        @endif
                     @endforeach
 
                     <div class="accordion-filters">
 
                         <span class="filter-title">@lang('Product catalog')</span>
 
-                        <div class="accordion" id="accordionExample">
+                        {{--                        <div class="accordion" id="accordionExample">--}}
 
-                            @foreach ($filters as $filter)
+                        {{--                            @foreach ($filters as $filter)--}}
+                        {{--                                <div class="accordion-item">--}}
+                        {{--                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"--}}
+                        {{--                                        data-bs-target="#collapse-{{ $filter->id }}" aria-expanded="true"--}}
+                        {{--                                        aria-controls="collapse-{{ $filter->id }}">--}}
+                        {{--                                        <span>{{ $filter->name }}</span>--}}
+                        {{--                                        <img class="arrow-white" src="{{ asset('web/icons/accordion-arrow.svg') }}"--}}
+                        {{--                                            alt="">--}}
+                        {{--                                        <img class="arrow-red" src="{{ asset('web/icons/accordion-arrow-red.svg') }}"--}}
+                        {{--                                            alt="">--}}
+                        {{--                                    </button>--}}
+
+                        {{--                                    <div id="collapse-{{ $filter->id }}" class="accordion-collapse collapse show"--}}
+                        {{--                                        data-bs-parent="#accordionExample">--}}
+                        {{--                                        <div class="accordion-body">--}}
+                        {{--                                            @foreach ($filter->options as $option)--}}
+                        {{--                                                @php--}}
+                        {{--                                                    $isFilterChecked =--}}
+                        {{--                                                        is_array(request()->input('filter_options')) &&--}}
+                        {{--                                                        in_array($option->id, request()->input('filter_options'));--}}
+                        {{--                                                @endphp--}}
+                        {{--                                                <span class="filter-item {{ $isFilterChecked ? 'active' : '' }}"--}}
+                        {{--                                                    style="cursor: pointer; display: block;"--}}
+                        {{--                                                    onclick="this.querySelector('input').click();">--}}
+                        {{--                                                    <input type="checkbox" name="filter_options[]"--}}
+                        {{--                                                        value="{{ $option->id }}"--}}
+                        {{--                                                        {{ $isFilterChecked ? 'checked' : '' }} style="display: none;"--}}
+                        {{--                                                        onclick="event.stopPropagation(); this.form.submit();">--}}
+                        {{--                                                    {{ $option->value }}--}}
+                        {{--                                                </span>--}}
+                        {{--                                            @endforeach--}}
+                        {{--                                        </div>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                            @endforeach--}}
+
+                        {{--                        </div>--}}
+
+
+{{--                        --}}{{-- yeni akordion start --}}
+{{--                        <div class="accordion" id="filterAccordionExample">--}}
+{{--                            @foreach($categories as $category)--}}
+{{--                                <div class="accordion-item">--}}
+{{--                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"--}}
+{{--                                            data-bs-target="#collapse-{{$category->id}}" aria-expanded="true"--}}
+{{--                                            aria-controls="collapse-{{$category->id}}">--}}
+
+{{--                                        <label class="custom-checkbox" onclick="event.stopPropagation();">--}}
+{{--                                            <input type="checkbox" name="categories[]" value="{{$category->id}}"--}}
+{{--                                                   onchange="this.form.submit()">--}}
+{{--                                            <span class="checkmark"></span>--}}
+{{--                                            <span class="label-text">{{$category->name}}</span>--}}
+{{--                                        </label>--}}
+
+{{--                                        <img class="arrow-white" src="{{asset('web/icons/accordion-arrow.svg')}}"--}}
+{{--                                             alt="">--}}
+{{--                                        <img class="arrow-red" src="{{asset('web/icons/accordion-arrow-red.svg')}}"--}}
+{{--                                             alt="">--}}
+{{--                                    </button>--}}
+
+{{--                                    <div id="collapse-{{$category->id}}" class="accordion-collapse collapse show"--}}
+{{--                                         data-bs-parent="#filterAccordionExample">--}}
+{{--                                        <div class="accordion-body">--}}
+{{--                                            <div class="accordion" id="sub-{{$category->id}}-Accordion">--}}
+
+{{--                                                @foreach($category->filters as $filter)--}}
+{{--                                                    <div class="accordion-item">--}}
+{{--                                                        <button class="accordion-button collapsed" type="button"--}}
+{{--                                                                data-bs-toggle="collapse"--}}
+{{--                                                                data-bs-target="#collapse-{{$filter->id}}"--}}
+{{--                                                                aria-expanded="false"--}}
+{{--                                                                aria-controls="collapse-{{$filter->id}}">--}}
+
+{{--                                                            <label class="custom-checkbox"--}}
+{{--                                                                   onclick="event.stopPropagation();">--}}
+{{--                                                                <input type="checkbox" name="filters[]"--}}
+{{--                                                                       value="{{$filter->id}}"--}}
+{{--                                                                       onchange="this.form.submit()">--}}
+{{--                                                                <span class="checkmark"></span>--}}
+{{--                                                                <span class="label-text">{{$filter->name}}</span>--}}
+{{--                                                            </label>--}}
+
+{{--                                                            <img class="arrow-white"--}}
+{{--                                                                 src="{{asset('web/icons/accordion-arrow.svg')}}"--}}
+{{--                                                                 alt="">--}}
+{{--                                                            <img class="arrow-red"--}}
+{{--                                                                 src="{{asset('web/icons/accordion-arrow-red.svg')}}"--}}
+{{--                                                                 alt="">--}}
+{{--                                                        </button>--}}
+
+{{--                                                        <div id="collapse-{{$filter->id}}"--}}
+{{--                                                             class="accordion-collapse collapse"--}}
+{{--                                                             data-bs-parent="#sub-{{$category->name}}-Accordion">--}}
+{{--                                                            <div class="accordion-body">--}}
+
+{{--                                                                @foreach($filter->options as $option)--}}
+{{--                                                                    <span class="filter-item">--}}
+{{--                                                            <label class="custom-checkbox">--}}
+{{--                                                                <input type="checkbox" name="filter_options[]"--}}
+{{--                                                                       value="{{$option->id}}"--}}
+{{--                                                                       onchange="this.form.submit()">--}}
+{{--                                                                <span class="checkmark"></span>--}}
+{{--                                                                <span class="label-text">{{$option->value}}</span>--}}
+{{--                                                            </label>--}}
+{{--                                                        </span>--}}
+{{--                                                                @endforeach--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                @endforeach--}}
+
+
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+{{--                            @endforeach--}}
+{{--                        </div>--}}
+{{--                        --}}{{-- yeni akordion end --}}
+
+
+                        {{-- yeni akordion start --}}
+                        <div class="accordion" id="filterAccordionExample">
+                            @foreach($categories as $category)
                                 <div class="accordion-item">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse-{{ $filter->id }}" aria-expanded="true"
-                                        aria-controls="collapse-{{ $filter->id }}">
-                                        <span>{{ $filter->name }}</span>
-                                        <img class="arrow-white" src="{{ asset('web/icons/accordion-arrow.svg') }}"
-                                            alt="">
-                                        <img class="arrow-red" src="{{ asset('web/icons/accordion-arrow-red.svg') }}"
-                                            alt="">
+                                            data-bs-target="#collapse-cat-{{$category->id}}" aria-expanded="true">
+
+                                        <label class="custom-checkbox" onclick="event.stopPropagation();">
+                                            <input type="checkbox" name="categories[]" value="{{$category->id}}"
+                                                   onchange="this.form.submit()" {{ in_array($category->id, (array)request('categories')) ? 'checked' : '' }}>
+                                            <span class="checkmark"></span>
+                                            <span class="label-text">{{$category->name}}</span>
+                                        </label>
                                     </button>
 
-                                    <div id="collapse-{{ $filter->id }}" class="accordion-collapse collapse show"
-                                        data-bs-parent="#accordionExample">
+                                    {{-- Buradaki parent, en dıştaki #filterAccordionExample olmalı --}}
+                                    <div id="collapse-cat-{{$category->id}}" class="accordion-collapse collapse show"
+                                         data-bs-parent="#filterAccordionExample">
                                         <div class="accordion-body">
-                                            @foreach ($filter->options as $option)
-                                                @php
-                                                    $isFilterChecked =
-                                                        is_array(request()->input('filter_options')) &&
-                                                        in_array($option->id, request()->input('filter_options'));
-                                                @endphp
-                                                <span class="filter-item {{ $isFilterChecked ? 'active' : '' }}"
-                                                    style="cursor: pointer; display: block;"
-                                                    onclick="this.querySelector('input').click();">
+                                            <div class="accordion" id="sub-accordion-{{$category->id}}">
+
+                                                @foreach($category->filters as $filter)
+                                                    <div class="accordion-item">
+                                                        <button class="accordion-button collapsed" type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#collapse-filter-{{$filter->id}}"
+                                                                aria-expanded="false">
+
+                                                            <label class="custom-checkbox" onclick="event.stopPropagation();">
+                                                                <input type="checkbox" name="filters[]"
+                                                                       value="{{$filter->id}}"
+                                                                       onchange="this.form.submit()" {{ in_array($filter->id, (array)request('filters')) ? 'checked' : '' }}>
+                                                                <span class="checkmark"></span>
+                                                                <span class="label-text">{{$filter->name}}</span>
+                                                            </label>
+                                                        </button>
+
+                                                        {{-- Buradaki parent, hemen üstündeki #sub-accordion-{{$category->id}} olmalı --}}
+                                                        <div id="collapse-filter-{{$filter->id}}"
+                                                             class="accordion-collapse collapse"
+                                                             data-bs-parent="#sub-accordion-{{$category->id}}">
+                                                            <div class="accordion-body">
+                                                                @foreach($filter->options as $option)
+                                                                    <span class="filter-item">
+                                                <label class="custom-checkbox">
                                                     <input type="checkbox" name="filter_options[]"
-                                                        value="{{ $option->id }}"
-                                                        {{ $isFilterChecked ? 'checked' : '' }} style="display: none;"
-                                                        onclick="event.stopPropagation(); this.form.submit();">
-                                                    {{ $option->value }}
-                                                </span>
-                                            @endforeach
+                                                           value="{{$option->id}}"
+                                                           onchange="this.form.submit()" {{ in_array($option->id, (array)request('filter_options')) ? 'checked' : '' }}>
+                                                    <span class="checkmark"></span>
+                                                    <span class="label-text">{{$option->value}}</span>
+                                                </label>
+                                            </span>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
-
-                        </div>
-
-                        {{-- yeni akordion start --}}
-                        <div class="accordion" id="filterAccordionExample">
-
-                            <div class="accordion-item">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseMeat" aria-expanded="true" aria-controls="collapseMeat">
-                                    <span>Ət və Ət Məhsulları</span>
-                                    <img class="arrow-white" src="assets/icons/accordion-arrow.svg" alt="">
-                                    <img class="arrow-red" src="assets/icons/accordion-arrow-red.svg" alt="">
-                                </button>
-
-                                <div id="collapseMeat" class="accordion-collapse collapse show"
-                                    data-bs-parent="#filterAccordionExample">
-                                    <div class="accordion-body">
-
-                                        <div class="accordion" id="subMeatAccordion">
-
-                                            <div class="accordion-item">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapseQoyun"
-                                                    aria-expanded="false" aria-controls="collapseQoyun">
-                                                    <span>Qoyun Əti</span>
-                                                    <img class="arrow-white" src="assets/icons/accordion-arrow.svg"
-                                                        alt="">
-                                                    <img class="arrow-red" src="assets/icons/accordion-arrow-red.svg"
-                                                        alt="">
-                                                </button>
-
-                                                <div id="collapseQoyun" class="accordion-collapse collapse"
-                                                    data-bs-parent="#subMeatAccordion">
-                                                    <div class="accordion-body">
-                                                        <span class="filter-item">Bud</span>
-                                                        <span class="filter-item">Kəllə</span>
-                                                        <span class="filter-item">Bel</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="accordion-item">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapseToyuq"
-                                                    aria-expanded="false" aria-controls="collapseToyuq">
-                                                    <span>Toyuq Əti</span>
-                                                    <img class="arrow-white" src="assets/icons/accordion-arrow.svg"
-                                                        alt="">
-                                                    <img class="arrow-red" src="assets/icons/accordion-arrow-red.svg"
-                                                        alt="">
-                                                </button>
-
-                                                <div id="collapseToyuq" class="accordion-collapse collapse"
-                                                    data-bs-parent="#subMeatAccordion">
-                                                    <div class="accordion-body">
-                                                        <span class="filter-item">File</span>
-                                                        <span class="filter-item">Qanad</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseDairy" aria-expanded="false" aria-controls="collapseDairy">
-                                    <span>Süd Məhsulları, Pendir və Yumurta</span>
-                                    <img class="arrow-white" src="assets/icons/accordion-arrow.svg" alt="">
-                                    <img class="arrow-red" src="assets/icons/accordion-arrow-red.svg" alt="">
-                                </button>
-
-                                <div id="collapseDairy" class="accordion-collapse collapse"
-                                    data-bs-parent="#filterAccordionExample">
-                                    <div class="accordion-body">
-                                        <span class="filter-item">Ağ Pendir</span>
-                                        <span class="filter-item">Kərə Yağı</span>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                         {{-- yeni akordion end --}}
 
@@ -169,7 +246,7 @@
                                 @endphp
                                 <label class="custom-checkbox">
                                     <input type="checkbox" name="brands[]" value="{{ $brand->id }}"
-                                        {{ $isBrandChecked ? 'checked' : '' }} onchange="this.form.submit()">
+                                           {{ $isBrandChecked ? 'checked' : '' }} onchange="this.form.submit()">
                                     <span class="checkmark"></span>
                                     <span class="label-text">{{ $brand->name }}</span>
                                 </label>
@@ -215,7 +292,7 @@
                     <div class="product-cards">
                         @foreach ($products as $product)
                             <a href="{{ route('product.details', $product->slug ?? $product->id) }}"
-                                class="product-card">
+                               class="product-card">
 
                                 <div class="product-image">
                                     <img src="{{ $product->image }}" alt="">
@@ -225,10 +302,6 @@
                                     <span class="product-title">{{ $product->category_name }}</span>
                                     <p class="product-description">{{ $product->name }}</p>
                                 </div>
-
-                                {{--                            <div class="badget"> --}}
-                                {{--                                <span>HƏFTƏNIN SEÇIMI</span> --}}
-                                {{--                            </div> --}}
 
                             </a>
                         @endforeach
@@ -324,11 +397,11 @@
 @endsection
 @push('scripts')
     <script>
-        document.getElementById('slider-min').addEventListener('input', function() {
+        document.getElementById('slider-min').addEventListener('input', function () {
             document.getElementById('input-min-price').value = this.value;
             document.getElementById('display-min').innerText = this.value + " ₼";
         });
-        document.getElementById('slider-max').addEventListener('input', function() {
+        document.getElementById('slider-max').addEventListener('input', function () {
             document.getElementById('input-max-price').value = this.value;
             document.getElementById('display-max').innerText = this.value + " ₼";
         });
