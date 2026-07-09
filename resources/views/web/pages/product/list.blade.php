@@ -79,14 +79,14 @@
                                                             <div class="accordion-body">
                                                                 @foreach($filter->options as $option)
                                                                     <span class="filter-item">
-                                                <label class="custom-checkbox">
-                                                    <input type="checkbox" name="filter_options[]"
-                                                           value="{{$option->id}}"
-                                                           onchange="this.form.submit()" {{ in_array($option->id, (array)request('filter_options')) ? 'checked' : '' }}>
-                                                    <span class="checkmark"></span>
-                                                    <span class="label-text">{{$option->value}}</span>
-                                                </label>
-                                            </span>
+                                                                        <label class="custom-checkbox">
+                                                                            <input type="checkbox" name="filter_options[]"
+                                                                                   value="{{$option->id}}"
+                                                                                   onchange="this.form.submit()" {{ in_array($option->id, (array)request('filter_options')) ? 'checked' : '' }}>
+                                                                            <span class="checkmark"></span>
+                                                                            <span class="label-text">{{$option->value}}</span>
+                                                                        </label>
+                                                                    </span>
                                                                 @endforeach
                                                             </div>
                                                         </div>
