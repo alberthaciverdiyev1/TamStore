@@ -1854,6 +1854,7 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 24px;
+    color: #fff;
 }
 .product-details-container .detailed-description-container .detailed-description-box .title {
   font-size: 18px;

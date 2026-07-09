@@ -14,13 +14,14 @@ class Product extends Model
 
     protected $table = 'products';
 
-    protected $fillable = ['slug', 'name', 'short_description', 'description', 'price', 'category_id', 'brand_id', 'view_count', 'tags'];
+    protected $fillable = ['slug', 'name', 'short_description', 'description', 'price', 'category_id', 'brand_id', 'view_count', 'tags', 'status'];
 
     protected $casts = [
         'name' => 'array',
         'short_description' => 'array',
         'description' => 'array',
         'tags' => 'array',
+        'status' => 'boolean',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime'

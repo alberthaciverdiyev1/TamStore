@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Database\Seeders\TestDataSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -23,5 +24,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@tamstore.az',
             'password' => Hash::make('123456'),
         ]);
+
+        $this->call(TestDataSeeder::class);
     }
 }
